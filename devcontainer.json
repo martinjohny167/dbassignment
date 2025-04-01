@@ -1,0 +1,16 @@
+{
+  "name": "MySQL + Flyway + Ansible",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  "features": {
+    "ghcr.io/devcontainers/features/mysql:1": {
+      "version": "8.0",
+      "rootPassword": "securepass123",
+      "startOnCreate": true
+    },
+    "ghcr.io/devcontainers/features/ansible:1": {},
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17"
+    }
+  },
+  "postCreateCommand": "curl -s https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/9.22.3/flyway-commandline-9.22.3-linux-x64.tar.gz | tar xz && sudo ln -s $(pwd)/flyway-9.22.3/flyway /usr/local/bin/flyway && pip install mysql-connector-python"
+}
